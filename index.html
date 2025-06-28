@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Cards Collection</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1><i class="fas fa-utensils"></i> Recipe Collection</h1>
+                <div class="search-container">
+                    <input type="text" id="searchInput" placeholder="Search recipes..." class="search-input">
+                    <i class="fas fa-search search-icon"></i>
+                </div>
+                <button class="add-recipe-btn" id="addRecipeBtn">
+                    <i class="fas fa-plus"></i> Add Recipe
+                </button>
+            </div>
+        </header>
+
+        <!-- Filter Tabs -->
+        <div class="filter-tabs">
+            <button class="tab-btn active" data-category="all">All Recipes</button>
+            <button class="tab-btn" data-category="breakfast">Breakfast</button>
+            <button class="tab-btn" data-category="lunch">Lunch</button>
+            <button class="tab-btn" data-category="dinner">Dinner</button>
+            <button class="tab-btn" data-category="dessert">Dessert</button>
+        </div>
+
+        <!-- Recipe Cards Grid -->
+        <div class="recipes-grid" id="recipesGrid">
+            <!-- Recipe cards will be dynamically generated -->
+        </div>
+
+        <!-- Recipe Modal -->
+        <div class="modal" id="recipeModal">
+            <div class="modal-content">
+                <span class="close-btn" id="closeModal">&times;</span>
+                <form id="recipeForm">
+                    <h2 id="modalTitle">Add New Recipe</h2>
+                    
+                    <div class="form-group">
+                        <label for="recipeName">Recipe Name</label>
+                        <input type="text" id="recipeName" required>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="recipeCategory">Category</label>
+                            <select id="recipeCategory" required>
+                                <option value="">Select Category</option>
+                                <option value="breakfast">Breakfast</option>
+                                <option value="lunch">Lunch</option>
+                                <option value="dinner">Dinner</option>
+                                <option value="dessert">Dessert</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="cookingTime">Cooking Time (minutes)</label>
+                            <input type="number" id="cookingTime" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="difficulty">Difficulty</label>
+                            <select id="difficulty" required>
+                                <option value="">Select Difficulty</option>
+                                <option value="easy">Easy</option>
+                                <option value="medium">Medium</option>
+                                <option value="hard">Hard</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="servings">Servings</label>
+                            <input type="number" id="servings" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="imageUrl">Image URL</label>
+                        <input type="url" id="imageUrl" placeholder="https://example.com/image.jpg">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="ingredients">Ingredients (one per line)</label>
+                        <textarea id="ingredients" rows="4" required placeholder="2 cups flour&#10;1 cup sugar&#10;3 eggs"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="instructions">Instructions</label>
+                        <textarea id="instructions" rows="6" required placeholder="1. Preheat oven to 350°F&#10;2. Mix dry ingredients..."></textarea>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" id="cancelBtn">Cancel</button>
+                        <button type="submit">Save Recipe</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Recipe Detail Modal -->
+        <div class="modal" id="recipeDetailModal">
+            <div class="modal-content recipe-detail">
+                <span class="close-btn" id="closeDetailModal">&times;</span>
+                <div id="recipeDetailContent">
+                    <!-- Recipe details will be dynamically generated -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
